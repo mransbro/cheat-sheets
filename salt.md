@@ -30,3 +30,20 @@ Manipulate grains.
 salt 'minion1' grains.setval mygrain True  # Set mygrain to True (create if it doesn't exist yet)
 salt 'minion1' grains.delval mygrain       # Delete the value of the grain
 ```
+
+## Keys
+
+```
+salt-key -L                                 # List all keys
+salt-key -a <key name>                      # Accept the specified public key
+salt-key -A                                 # Accept all pending keys
+salt-key -r <key name>                      # Reject the specified key
+salt-key -R                                 # Reject all pending keys
+salt-key -p <key name>                      # Print the specified key fingerprint
+```
+
+## Commands
+
+```
+salt '*' cmd.run 'powershell.exe c:\temp\script.ps1'        # Runs a specifed PowerShell script on Windows minion
+```
