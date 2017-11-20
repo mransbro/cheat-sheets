@@ -14,6 +14,12 @@ salt '*' test.ping      # Use test module to check if minion is up and respondin
 
 ## Grains
 
+### salt-master
+
+salt-master --version                       # Print the running version of Salt
+salt-master --versions-report               # Print the running version of salt and its dependencies
+
+
 List all grains on all minions
 ```
     salt '*' grains.ls
@@ -45,5 +51,5 @@ salt-key -p <key name>                      # Print the specified key fingerprin
 ## Commands
 
 ```
-salt '*' cmd.run 'powershell.exe c:\temp\script.ps1'        # Runs a specifed PowerShell script on Windows minion
+salt '*' cmd.run 'powershell.exe c:\temp\script.ps1'        # Runs a specified PowerShell script on Windows minion
 ```
