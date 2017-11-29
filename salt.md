@@ -1,12 +1,18 @@
 # Salt
 
+https://docs.saltstack.com/en/latest/ref/cli/
+## Master
+
+salt-master --version
+
+
 ## Minions
 
 ```
 salt-run manage.status  # What is the status of all my minions? (both up and down)
 salt-run manage.up      # Any minions that are up?
 salt-run manage.down    # Any minions that are down?
-salt-run manage.alived  # Show all alive minions
+salt-run manage.alive  # Show all alive minions
 salt '*' test.version   # Display salt version
 salt '*' test.ping      # Use test module to check if minion is up and responding.
                         # (Not an ICMP ping!)
@@ -16,9 +22,13 @@ salt '*' test.ping      # Use test module to check if minion is up and respondin
 
 ### salt-master
 
+The Salt master daemon, used to control the Salt minions
+
+```
 salt-master --version                       # Print the running version of Salt
 salt-master --versions-report               # Print the running version of salt and its dependencies
-
+salt-master --help                          # Show the help message
+```
 
 List all grains on all minions
 ```
@@ -38,6 +48,8 @@ salt 'minion1' grains.delval mygrain       # Delete the value of the grain
 ```
 
 ## Keys
+
+Salt-key executes simple management of Salt server public keys used for authentication.
 
 ```
 salt-key -L                                 # List all keys
