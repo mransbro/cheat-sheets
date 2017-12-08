@@ -1,57 +1,44 @@
 # Salt
 
 https://docs.saltstack.com/en/latest/ref/cli/
+
 ## Master
 
-salt-master --version
+The Salt master daemon, used to control the Salt minions.
 
-
-## Minions
-
-```
-salt-run manage.status  # What is the status of all my minions? (both up and down)
-salt-run manage.up      # Any minions that are up?
-salt-run manage.down    # Any minions that are down?
-salt-run manage.alive  # Show all alive minions
-salt '*' test.version   # Display salt version
-salt '*' test.ping      # Use test module to check if minion is up and responding.
-                        # (Not an ICMP ping!)
-```
-
-## Grains
-
-### salt-master
-
-The Salt master daemon, used to control the Salt minions
-
-```
+```bash
 salt-master --version                       # Print the running version of Salt
 salt-master --versions-report               # Print the running version of salt and its dependencies
 salt-master --help                          # Show the help message
 ```
 
-List all grains on all minions
-```
-    salt '*' grains.ls
+## Minions
+
+```bash
+salt-run manage.status                      # What is the status of all my minions? (both up and down)
+salt-run manage.up                          # Any minions that are up?
+salt-run manage.down                        # Any minions that are down?
+salt-run manage.alive                       # Show all alive minions
+salt '*' test.version                       # Display salt version
+salt '*' test.ping                          # Use test module to check if minion is up and responding.
+                                            # (Not an ICMP ping!)
 ```
 
-Look at a single grains item to list the values.
-```
-salt '*' grains.item os      # Show the value of the OS grain for every minion
-salt '*' grains.item roles   # Show the value of the roles grain for every minion
-```
+## Grains
 
-Manipulate grains.
-```
-salt 'minion1' grains.setval mygrain True  # Set mygrain to True (create if it doesn't exist yet)
-salt 'minion1' grains.delval mygrain       # Delete the value of the grain
+```bash
+salt '*' grains.ls                          # List all grains on all minions
+salt '*' grains.item os                     # Show the value of the OS grain for every minion
+salt '*' grains.item roles                  # Show the value of the roles grain for every minion
+salt 'minion1' grains.setval mygrain True   # Set mygrain to True (create if it doesn't exist yet)
+salt 'minion1' grains.delval mygrain        # Delete the value of the grain
 ```
 
 ## Keys
 
 Salt-key executes simple management of Salt server public keys used for authentication.
 
-```
+```bash
 salt-key -L                                 # List all keys
 salt-key -a <key name>                      # Accept the specified public key
 salt-key -A                                 # Accept all pending keys
@@ -62,6 +49,6 @@ salt-key -p <key name>                      # Print the specified key fingerprin
 
 ## Commands
 
-```
-salt '*' cmd.run 'powershell.exe c:\temp\script.ps1'        # Runs a specified PowerShell script on Windows minion
+```bash
+salt '*' cmd.run 'powershell.exe c:\script.ps1'        # Runs a specified PowerShell script on Windows minion
 ```

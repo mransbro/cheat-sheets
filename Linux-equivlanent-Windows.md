@@ -2,13 +2,13 @@
 
 This is a list of Linux commands for Windows Admins to complete common tasks. The list focuses on RedHat/CentOS.
 
-### Task Manager / Performance
+## Task Manager / Performance
 
-```
+```bash
 top
 ```
 
-### Task Manager / Users
+## Task Manager / Users
 Windows Task Manager gives you a quick view on connected and disconnected user sessions. The Linux command alternative is **w**.
 
 ``` bash
@@ -19,7 +19,7 @@ root     pts/0    10.10.10.10      09:41    3.00s  0.02s  0.00s w
 [root@host01 ~]#
 ```
 
-### Task Manager / Services
+## Task Manager / Services
 
 ```
 service --status-all
@@ -29,73 +29,77 @@ service httpd stop
 service httpd start
 ```
 
-### Task Manager / Processes
+## Task Manager / Processes
 
-```
+```bash
 ps
 ps -e
 
 kill
 ```
 
-### Copy & Cut a file or directory
+## Copy & Cut a file or directory
+
 Everyone knows with Windows Explorer right click a file or folder and you have the option to copy or cut. Linux uses the **cp** command to copy and the **mv** command to cut.
 
 Both commands have a similar syntax {command} [option] SOURCE DEST.
 
-```
+```bash
 cp /web/logs /web/logs/archive
 
 mv log
 ```
 
-### Delete a file
+## Delete a file
 
-``` bash
+```bash
 rm logfile01.log logfile02.log
 
 rm log*.log
 ```
 
-### Delete a folder
+## Delete a folder
 To delete a directory add the **-r** option
 
-``` bash
+```bash
 rm -r /logfiles
 ```
 
-### Create a local user
+## Create a local user
 
-```
+```bash
 adduser {username}
 passwd {username}
 ```
-### Make a local user administrator
 
-```
+## Make a local user administrator
+
+```bash
 usermod -aG wheel {username}
 ```
 
-### Check / Set the time and date
+## Check / Set the time and date
 
 ``` bash
 date
 ```
-### Install updates
+
+## Install updates
 
 ``` bash
 yum update
 ```
-### Check disk space
+
+## Check disk space
 
 ```
 df
 ```
 
-### Search for a file/folder
+## Search for a file/folder
 
 ```
-find 
+find / -name vmware.conf
 ```
 
 ### Manage firewall
