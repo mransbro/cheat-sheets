@@ -47,8 +47,24 @@ salt-key -R                                 # Reject all pending keys
 salt-key -p <key name>                      # Print the specified key fingerprint
 ```
 
+## Cloud
+
+```bash
+salt-cloud -p aws-centos webapp01               # Creates a VM from called webapp01 from the aws-centos profile
+salt-cloud -m /srv/salt/cloud-maps/webapp       # Creates the VMs specified in the map file
+salt-cloud -d US-webServer-01                   # Destroys the specified VM
+salt-cloud -m /srv/salt/cloud-maps/webapp -d    # Destroys the VMs specified in the map file
+salt-cloud -m /srv/salt/cloud-maps/webapp -Q    # Queries the status of the VMs in the map file
+```
+
 ## Commands
 
 ```bash
 salt '*' cmd.run 'powershell.exe c:\script.ps1'        # Runs a specified PowerShell script on Windows minion
+```
+
+## State
+```bash
+salt 'server' state.apply                       # Apply all states
+salt 'server' state.apply installWeb            # Applies the single state named installWeb
 ```
