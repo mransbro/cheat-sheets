@@ -45,6 +45,7 @@ salt-key -A                                 # Accept all pending keys
 salt-key -r <key name>                      # Reject the specified key
 salt-key -R                                 # Reject all pending keys
 salt-key -p <key name>                      # Print the specified key fingerprint
+salt-key -d <key name>                      # Removing the minion key
 ```
 
 ## Cloud
@@ -67,4 +68,6 @@ salt '*' cmd.run 'powershell.exe c:\script.ps1'        # Runs a specified PowerS
 ```bash
 salt 'server' state.apply                       # Apply all states
 salt 'server' state.apply installWeb            # Applies the single state named installWeb
+salt 'server' state.apply test=TRUE             # View what a state run is going to change before applying that run
+salt-call -l Debug state.apply
 ```
