@@ -22,3 +22,10 @@ docker search <image>       # Search for a prebuilt image from Docker
 docker ps                   #  List running containers
 ```
 
+```
+docker image ls             # List
+```
+
+```
+docker images
+```
