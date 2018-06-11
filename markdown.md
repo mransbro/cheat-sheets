@@ -44,3 +44,11 @@ Header1 | Header2
 --------|--------
 cell1 | cell2
 another cell1 | another cell2
+
+## URLs
+
+[here is Google](https://google.com)
+
+```
+[here is Google](https://google.com)
+```

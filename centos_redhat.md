@@ -65,6 +65,14 @@ To delete a directory add the **-r** option
 rm -r /logfiles
 ```
 
+## User accounts
+
+### List local user accounts
+
+```bash
+cat /etc/passwd | awk -F: '{print $1}'
+```
+
 ## Create a local user
 
 ```bash
