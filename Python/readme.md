@@ -31,12 +31,49 @@ long_variables_like_me = 'Should be in camel_case'
 
 
 ```
+## Help
+
+```python
+# Functions can have a docstring
+print.__doc__
+```
+
+```python
+# Help function
+help(print)
+```
+
+```python
+dir()
+```
+
+```python
+type()
 
 
-Data types
+```
 
+## Data Structures
 
+```python
+# List are enclosed in square brackets
+random_data = [1,2,'friday',4.6,True]
+```
 
+```python
+# Tuples are created with round brackets
+months = ('JAN','FEB','MAR','APR','MAY','JUN', 'JUL','AUG','SEP','OCT','NOV','DEC')
+```
 
-Functions
+```python
+# Dictonary or dict use curly brackets
+members = {33333:'John Smith', 22222:'Monica Small'}
+```
+
+```python
+# Set
+i_am_a_set = {2,3,4}
+```
+
+## Functions
 
