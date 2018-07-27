@@ -48,7 +48,8 @@ dir()
 ```
 
 ```python
-type()
+# Need to know what type an object is
+type(creash_times)
 
 
 ```
@@ -56,23 +57,32 @@ type()
 ## Data Structures
 
 ```python
-# List are enclosed in square brackets
+# List are enclosed in square brackets are immuptable and contain different data types
 random_data = [1,2,'friday',4.6,True]
 ```
 
 ```python
-# Tuples are created with round brackets
+# Tuples are created with round brackets are immuptable and much faster to use
 months = ('JAN','FEB','MAR','APR','MAY','JUN', 'JUL','AUG','SEP','OCT','NOV','DEC')
 ```
 
 ```python
-# Dictonary or dict use curly brackets
+# Dictonary or dict use curly brackets. 
 members = {33333:'John Smith', 22222:'Monica Small'}
 ```
 
 ```python
-# Set
-i_am_a_set = {2,3,4}
+# Sets are unordered collections of unique data
+a = {1,2,3,4,5}
+b = {4,5,6,7}
+
+a | b # Union
+
+a & b # 
+
+a ^ b # Unique
+  
+a - b # difference
 ```
 
 ## Functions

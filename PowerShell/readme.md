@@ -34,20 +34,24 @@ $LooksLikeThis = 'Much easier to read'
 ## Help
 
 ```powershell
-# Powershell has an 
+# Powershell has brilliant built in help
 Help or Get-Help
 ```
 
 ```powershell
-# Get-Command
+# Get-Command 
 Get-command -verb 'add' -module 'ActiveDirectory'
 ```
 
 ```powershell
+# Get member or its alias gm returns the object type and all of its Methods and properties.
 $someData | Get-Member
+# If we pass an array with different datypes get member will show use the details of the objects inside the array.
+
 ```
 
 ```powershell
+# GetType() doesnt look inside the object. If 
 $info.GetType()
 ```
 
