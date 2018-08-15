@@ -122,8 +122,38 @@ True
 ```
 
 ```python
-# Any returns True is any of the elements in an iterable are True
+# any()
+# returns True is any of the elements in an iterable are True
 any(l)
 True
+# a more complex example
+things = ['is','1','False',[1,2,3],'99']
+any(type(x) == str for x in things)
+True
+```
+
+```python
+# sorted()
+# Sorts the elements of an iterable
+# sorted(iterable[, key][, reverse])
+sorted(things)
+['full', 'is', 'of', 'strings', 'this']
+# We can reverse the iterable
+nums = [7,8,9]
+sorted(nums, reverse=True)
+[9,8,7]
+# We can also sort using functions
+letters = ['aaaaaaaa','aa','aaaa','a']
+sorted(letters, key=len)
+['a', 'aa', 'aaaa', 'aaaaaaaa']
+```
+
+```python
+# Min and Max
+
+```
+
+```python
+# Reversed
 
 ```
