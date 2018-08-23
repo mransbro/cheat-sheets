@@ -99,3 +99,73 @@ a - b # difference
 
 ## Functions
 
+# Lambda
+
+```python
+# Map syntax is map(function,iterable object)
+nums = [89,6,78,100,32,16]
+doubles = map(lambda x: x * 2, nums)
+# This creates a map object. Printing the object wont do much good, we can either convert to a list or iterate over it.
+print(list(doubles))
+[178, 12, 156, 200, 64, 32]
+# Map objects can only be itereated over once
+for n in doubles:
+    print(n)
+178
+12
+156
+200
+64
+32
+```
+
+```python
+# Filter syntax is filter(function, iterable object)
+# Function must return true or false
+nums = [3,6,4,7,8,9,1,14]
+odds = filter(lambda x: x % 2 == 0, nums)
+```
+
+```python
+# All returns True or false if all elements in an iterable are True
+l = [True,1,10]
+all(l)
+True
+```
+
+```python
+# any()
+# returns True is any of the elements in an iterable are True
+any(l)
+True
+# a more complex example
+things = ['is','1','False',[1,2,3],'99']
+any(type(x) == str for x in things)
+True
+```
+
+```python
+# sorted()
+# Sorts the elements of an iterable
+# sorted(iterable[, key][, reverse])
+sorted(things)
+['full', 'is', 'of', 'strings', 'this']
+# We can reverse the iterable
+nums = [7,8,9]
+sorted(nums, reverse=True)
+[9,8,7]
+# We can also sort using functions
+letters = ['aaaaaaaa','aa','aaaa','a']
+sorted(letters, key=len)
+['a', 'aa', 'aaaa', 'aaaaaaaa']
+```
+
+```python
+# Min and Max
+
+```
+
+```python
+# Reversed
+
+```
