@@ -23,9 +23,13 @@ docker ps                   #  List running containers
 ```
 
 ```
-docker image ls             # List
+docker image ls             # List images
 ```
 
 ```
-docker images
+docker rmi <image>          # Remove Docker image
+```
+
+```
+docker kill <container ID>  # Kill a running container
 ```

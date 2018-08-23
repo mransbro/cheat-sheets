@@ -14,7 +14,7 @@
 '''
 Multi line
 strings
-are possible 
+are possible
 '''
 ```
 
@@ -59,6 +59,10 @@ type(creash_times)
 ```python
 # List are enclosed in square brackets are immuptable and contain different data types
 random_data = [1,2,'friday',4.6,True]
+
+# List comprehension syntax is [expression for item in list if conditional]
+
+
 ```
 
 ```python
@@ -67,8 +71,16 @@ months = ('JAN','FEB','MAR','APR','MAY','JUN', 'JUL','AUG','SEP','OCT','NOV','DE
 ```
 
 ```python
-# Dictonary or dict use curly brackets. 
+# Dictonary or dict use curly brackets.
 members = {33333:'John Smith', 22222:'Monica Small'}
+```
+
+```python
+# Dictonary Comprehension
+# The syntax looks like {key:value for x in list}
+word = 'comprehension'
+letter_count = {letter:word.count(x) for letter in word}
+{'c': 1, 'o': 2, 'm': 1, 'p': 1, 'r': 1, 'e': 2, 'h': 1, 'n': 2, 's': 1, 'i': 1}
 ```
 
 ```python
