@@ -166,6 +166,18 @@ sorted(letters, key=len)
 ```
 
 ```python
-# Reversed
+# The reversed method return the reversed iterator of a sequence
+# reversed(seq)
+letters = ['a','b','c','d','e','f','g','h']
+>>> print(reversed(letters))
+<list_reverseiterator object at 0x00000194ACFA0A20>
+>>> print(list(reversed(letters)))
+['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
+```
+
+```python
+# Errors
+
+
 
 ```
