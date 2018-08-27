@@ -19,7 +19,7 @@ are possible
 ```
 
 ```python
-# Variables in Python are case sensitive
+# Variables in Python are case sensitive 
 >>> info = 1,2,3
 >>> inFo = 'Im a new variable as i have a capital F'
 >>> long_variables_like_me = 'Should be in camel_case'
@@ -68,7 +68,7 @@ one = 1
 ```
 
 ```python
-# Dictonary or dict use curly brackets.
+# Dictonary or dict use curly brackets. 
 >>> members = {33333:'John Smith', 22222:'Monica Small'}
 ```
 
@@ -177,10 +177,44 @@ letters = ['a','b','c','d','e','f','g','h']
 ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
 ```
 
+## Errors
+
 ```python
-# Errors
-# Raise your own exceptions with the raise statement
->>> raise NameError('All hells broken loose')
+# To throw our own error we use the raise statement
+# raise <error> (error message)
+def print_string(s):
+    if type(s) != 'str':
+        raise ValueError ('I told you i needed a string input')
+    print(s)
+# The error has to be a valid Python error type but the error message can be whatever we wish
+```
 
+```python
+# try except else finally
+# Except runs when try fails. It can accept all errors or just a type we specify.
+# Adding an int and str will produce a TypeError. If we specify a ValueError except wont run.
+>>> try:
+    1 + '1'
+except ValueError:
+    print('Stop messing around please')
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
+>>> try:
+>>>    1 + '1'
+>>> except:
+>>>    print('Stop messing around please')
+>>> else:
+>>>    print('I run when the except block doesnt')
+Stop messing around please
+# Else will run when except doesnt
+>>> try:
+>>>    1 + 1
+>>> except:
+>>>    print('Stop messing around please')
+>>> else:
+>>>    print('I run when the except block doesnt')
+2
+I run when the except block doesnt
 ```
