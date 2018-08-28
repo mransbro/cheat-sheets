@@ -19,7 +19,7 @@ are possible
 ```
 
 ```python
-# Variables in Python are case sensitive 
+# Variables in Python are case sensitive
 >>> info = 1,2,3
 >>> inFo = 'Im a new variable as i have a capital F'
 >>> long_variables_like_me = 'Should be in camel_case'
@@ -84,17 +84,13 @@ one = 1
 # Sets are unordered collections of unique data
 >>> a = {1,2,3,4,5}
 >>> b = {4,5,6,7}
-
 >>> a | b # Union
-
 >>> a & b # 
-
 >>> a ^ b # Unique
-  
 >>> a - b # difference
 ```
 
-## Functions
+## Built in Functions
 
 ```python
 # Map syntax is map(function,iterable object)
@@ -173,6 +169,7 @@ True
 letters = ['a','b','c','d','e','f','g','h']
 >>> print(reversed(letters))
 <list_reverseiterator object at 0x00000194ACFA0A20>
+
 >>> print(list(reversed(letters)))
 ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
 ```
