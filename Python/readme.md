@@ -215,3 +215,58 @@ Stop messing around please
 2
 I run when the except block doesnt
 ```
+
+### Iterators and Generators
+
+```python
+# Iterators
+# An iterable is something you can loop over
+# An iterator is the object that does the looping
+>>> word = 'sunshine'
+>>> word_iter = iter(word)
+>>> word_iter
+<str_iterator object at 0x103317ba8>
+# Iterators have a next function which provides the next object
+>>> next(word_iter)
+'s'
+>>> next(word_iter)
+'u'
+>>> next(word_iter)
+'n'
+# To make a custom Class or object iterable we need to make use of two dunder methods, __iter__ and __next__.
+class TimesTen:
+    def __init__(self, max = 0):
+        self.max = max
+        self.i = 0
+    # This method initalizes the iterator object
+    def __iter__(self):
+        return self
+    # This method returns the next value for the iterable. When it reaches the end it should raise a StopIteration error
+    def __next__(self):
+        if self.i <= self.max:
+            result = self.i * 10
+            self.i += 1
+            return result
+        else:
+            raise StopIteration
+>>> for i in TimesTen(10):
+...   print(i)
+...
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+```
+
+```python
+# Generators
+
+
+```
