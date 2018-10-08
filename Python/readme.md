@@ -28,13 +28,59 @@ are possible
 ## Help
 
 ```python
-# Functions can have a docstring
->>> print.__doc__
+# help()
+# You can find help on modules, functions, classes, methods, keywords etc.
+>>> help(min)
+Help on built-in function min in module builtins:
+
+min(...)
+    min(iterable, *[, default=obj, key=func]) -> value
+    min(arg1, arg2, *args, *[, key=func]) -> value
+
+    With a single iterable argument, return its smallest item. The
+    default keyword-only argument specifies an object to return if
+    the provided iterable is empty.
+    With two or more arguments, return the smallest argument.
+
 ```
 
 ```python
-# Help function
->>> help(print)
+# Passing no argument takes you into Python's help utlity.
+>>> help()
+
+Welcome to Python 3.7's help utility!
+
+If this is your first time using Python, you should definitely check out
+the tutorial on the Internet at https://docs.python.org/3.7/tutorial/.
+
+Enter the name of any module, keyword, or topic to get help on writing
+Python programs and using Python modules.  To quit this help utility and
+return to the interpreter, just type "quit".
+
+To get a list of available modules, keywords, symbols, or topics, type
+"modules", "keywords", "symbols", or "topics".  Each module also comes
+with a one-line summary of what it does; to list the modules whose name
+or summary contain a given string such as "spam", type "modules spam".
+
+help> print
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+
+```
+
+```python
+# Most objects have a docstring which is a short description of its features.
+>>> print.__doc__
+"print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
 ```
 
 ```python
