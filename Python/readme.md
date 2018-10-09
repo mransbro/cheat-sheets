@@ -139,10 +139,23 @@ one = 1
 ## Built in Functions
 
 ```python
-# Map syntax is map(function,iterable object)
+# lambda
+# Lambdas are anonymous functions and not to be confused with Amazon's serverless function platform also called Lambda...
+# lambda arguments: expression
+>>> l = lambda x,y : x * y
+>>> l(5,5)
+25
+# Lambda Functions are generally used as an argument to a higher-order function, a function that takes in other functions as arguments.
+# There used along with built-in functions like filter(), map() etc.
+```
+
+```python
+# map()
+# Map executes a specified function for each given item
+# map(function, iterable object)
 >>> nums = [89,6,78,100,32,16]
 >>> doubles = map(lambda x: x * 2, nums)
-# This creates a map object. Printing the object wont do much good, we can either convert to a list or iterate over it.
+# This creates a map object. Printing the object wont do much good, we can either convert to a list or loop through it.
 >>> print(list(doubles))
 [178, 12, 156, 200, 64, 32]
 # Map objects can only be itereated over once
