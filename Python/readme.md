@@ -80,7 +80,10 @@ print(...)
 ```python
 # Most objects have a docstring which is a short description of its features.
 >>> print.__doc__
-"print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
+'''print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream,
+or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream);
+defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:
+string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream.'''
 ```
 
 ```python
@@ -114,7 +117,7 @@ one = 1
 ```
 
 ```python
-# Dictonary or dict use curly brackets. 
+# Dictonary or dict use curly brackets
 >>> members = {33333:'John Smith', 22222:'Monica Small'}
 ```
 
@@ -128,24 +131,35 @@ one = 1
 
 ```python
 # Sets are unordered collections of unique data
->>> a = {1,2,3,4,5}
->>> b = {4,5,6,7}
+>>> s = {1,2,2,2,3,3,4}
+>>> type(s)
+<class 'set'>
+>>> s
+{1, 2, 3, 4}
+# Set operations
+>>> a = {1,2,3,4,5,6}
+>>> b = {10,9,8,7,6,5}
 >>> a | b # Union
->>> a & b # 
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+>>> a & b # Intersection
+{5, 6}
 >>> a ^ b # Unique
+{1, 2, 3, 4, 7, 8, 9, 10}
 >>> a - b # difference
+{1, 2, 3, 4}
 ```
 
 ## Built in Functions
 
 ```python
 # lambda
-# Lambdas are anonymous functions and not to be confused with Amazon's serverless function platform also called Lambda...
+# Lambdas are anonymous functions and not to be confused with Amazon's serverless function platform.
 # lambda arguments: expression
 >>> l = lambda x,y : x * y
 >>> l(5,5)
 25
-# Lambda Functions are generally used as an argument to a higher-order function, a function that takes in other functions as arguments.
+# Lambda Functions are generally used as an argument to a higher-order function, 
+# a function that takes in other functions as arguments.
 # There used along with built-in functions like filter(), map() etc.
 ```
 
@@ -187,7 +201,7 @@ True
 
 ```python
 # any()
-# Returns True is any of the elements in an iterable are True
+# Returns True if any of the elements in an iterable are True
 >>> any(l)
 True
 # a more complex example
