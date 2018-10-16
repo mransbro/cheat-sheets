@@ -10,6 +10,8 @@
 
 * [Errors](#Errors)
 
+* [Iterators & Generators](#Iterators-and-Generators)
+
 ## Comments
 
 ```python
@@ -117,19 +119,38 @@ one = 1
 ## Data Structures
 
 ```python
-# List are enclosed in square brackets, are immuptable and contain different data types
+# Lists are enclosed in square brackets, are immuptable and contain different data types
 >>> random_data = [1,2,'friday',4.6,True]
 # Empty lists are allowed
 >>> empty = []
 # Items in the list can be accessed by the index operator
 >>> random_data[3]
 4.6
-# Nested lists use
+# List comprehension is used to transform any list or iterable into another list.
+# The syntax can be confusing at first [expression for item in list if conditional]
+days = ['mon','tues','wednes','thurs','fri']
+new_days = [x + 'day' for x in days]
+>>> new_days
+['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
 
+>>> o = [print(f"{x} is even") for x in range(1,11) if x % 2 == 0]
+2 is even
+4 is even
+6 is even
+8 is even
+10 is even
 
-
-# List comprehension syntax is [expression for item in list if conditional]
-
+# List comprehension can also be used on nested lists
+[x for r in y for x in r]
+nums = [[1,2,3],[4,5,6],[7,8,9]]
+new_nums = [n for nl in nums for n in nl]
+# This hurts my brain trying to read and comprend what its doing.
+# Breaking it down over several lines
+[
+    x
+    for r in y
+    for x in r
+]
 
 ```
 
@@ -311,7 +332,7 @@ Stop messing around please
 I run when the except block doesnt
 ```
 
-### Iterators and Generators
+## Iterators and Generators
 
 ```python
 # Iterators
@@ -361,7 +382,8 @@ class TimesTen:
 ```
 
 ```python
-# Generators
-
+# Generators are functions that can be paused, resumed and return an object which can be iterated over.
+# generators introduce the yield statement. Its smiliar to return in that it returns a value but differs in that it saves the state of the function.
+# This means the function execution continues where it left off.
 
 ```
