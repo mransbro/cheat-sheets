@@ -132,7 +132,7 @@ days = ['mon','tues','wednes','thurs','fri']
 new_days = [x + 'day' for x in days]
 >>> new_days
 ['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
-
+# Conditionals are placed at the back
 >>> o = [print(f"{x} is even") for x in range(1,11) if x % 2 == 0]
 2 is even
 4 is even
@@ -141,17 +141,14 @@ new_days = [x + 'day' for x in days]
 10 is even
 
 # List comprehension can also be used on nested lists
-[x for r in y for x in r]
-nums = [[1,2,3],[4,5,6],[7,8,9]]
-new_nums = [n for nl in nums for n in nl]
-# This hurts my brain trying to read and comprend what its doing.
-# Breaking it down over several lines
+numbers = [[1,2,3],[4,5,6],[7,8,9]]
+new_nums = [num for numlist in numbers for num in numlist]
+# Breaking it down over several lines can often improve readability
 [
-    x
-    for r in y
-    for x in r
+    num
+    for numlist in numbers
+    for num in numlist
 ]
-
 ```
 
 ```python
