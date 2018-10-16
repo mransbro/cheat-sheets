@@ -1,5 +1,17 @@
 # Python
 
+* [Comments](#Comments)
+
+* [Help](#Help)
+
+* [Data Structures](#Data-Structures)
+
+* [Built in Functions](#Built-in-Functions)
+
+* [Errors](#Errors)
+
+## Comments
+
 ```python
 # Single line comment
 ```
@@ -78,20 +90,22 @@ print(...)
 ```
 
 ```python
-# Most objects have a docstring which is a short description of its features.
+# Most objects have a docstring, which is a short description of its features.
 >>> print.__doc__
 "print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
 ```
 
 ```python
-# The dir() Method tries to return a list of valid attributes of the object
+# dir()
+# The dir() Method returns a list of valid attributes of the object.
 one = 1
 >>> dir(1)
 ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
 ```
 
 ```python
-# Need to know what type an object is
+# type()
+# The type method returns an object's type.
 >>> data = "Fat cat on a mat"
 >>> type(data)
 <class 'str'>
@@ -100,8 +114,16 @@ one = 1
 ## Data Structures
 
 ```python
-# List are enclosed in square brackets are immuptable and contain different data types
+# List are enclosed in square brackets, are immuptable and contain different data types
 >>> random_data = [1,2,'friday',4.6,True]
+# Empty lists are allowed
+>>> empty = []
+# Items in the list can be accessed by the index operator
+>>> random_data[3]
+4.6
+# Nested lists use
+
+
 
 # List comprehension syntax is [expression for item in list if conditional]
 
@@ -114,7 +136,7 @@ one = 1
 ```
 
 ```python
-# Dictonary or dict use curly brackets. 
+# Dictonary or dict use curly brackets.
 >>> members = {33333:'John Smith', 22222:'Monica Small'}
 ```
 
