@@ -92,7 +92,10 @@ print(...)
 ```python
 # Most objects have a docstring, which is a short description of its features.
 >>> print.__doc__
-"print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream."
+'''print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream,
+or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream);
+defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:
+string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream.'''
 ```
 
 ```python
@@ -136,7 +139,7 @@ one = 1
 ```
 
 ```python
-# Dictonary or dict use curly brackets.
+# Dictonary or dict use curly brackets
 >>> members = {33333:'John Smith', 22222:'Monica Small'}
 ```
 
@@ -150,21 +153,45 @@ one = 1
 
 ```python
 # Sets are unordered collections of unique data
->>> a = {1,2,3,4,5}
->>> b = {4,5,6,7}
+>>> s = {1,2,2,2,3,3,4}
+>>> type(s)
+<class 'set'>
+>>> s
+{1, 2, 3, 4}
+# Set operations
+>>> a = {1,2,3,4,5,6}
+>>> b = {10,9,8,7,6,5}
 >>> a | b # Union
->>> a & b # 
+{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+>>> a & b # Intersection
+{5, 6}
 >>> a ^ b # Unique
+{1, 2, 3, 4, 7, 8, 9, 10}
 >>> a - b # difference
+{1, 2, 3, 4}
 ```
 
 ## Built in Functions
 
 ```python
-# Map syntax is map(function,iterable object)
+# lambda
+# Lambdas are anonymous functions and not to be confused with Amazon's serverless function platform.
+# lambda arguments: expression
+>>> l = lambda x,y : x * y
+>>> l(5,5)
+25
+# Lambda Functions are generally used as an argument to a higher-order function, 
+# a function that takes in other functions as arguments.
+# There used along with built-in functions like filter(), map() etc.
+```
+
+```python
+# map()
+# Map executes a specified function for each given item
+# map(function, iterable object)
 >>> nums = [89,6,78,100,32,16]
 >>> doubles = map(lambda x: x * 2, nums)
-# This creates a map object. Printing the object wont do much good, we can either convert to a list or iterate over it.
+# This creates a map object. Printing the object wont do much good, we can either convert to a list or loop through it.
 >>> print(list(doubles))
 [178, 12, 156, 200, 64, 32]
 # Map objects can only be itereated over once
@@ -196,7 +223,7 @@ True
 
 ```python
 # any()
-# Returns True is any of the elements in an iterable are True
+# Returns True if any of the elements in an iterable are True
 >>> any(l)
 True
 # a more complex example
@@ -282,4 +309,59 @@ Stop messing around please
 >>>    print('I run when the except block doesnt')
 2
 I run when the except block doesnt
+```
+
+### Iterators and Generators
+
+```python
+# Iterators
+# An iterable is something you can loop over
+# An iterator is the object that does the looping
+>>> word = 'sunshine'
+>>> word_iter = iter(word)
+>>> word_iter
+<str_iterator object at 0x103317ba8>
+# Iterators have a next function which provides the next object
+>>> next(word_iter)
+'s'
+>>> next(word_iter)
+'u'
+>>> next(word_iter)
+'n'
+# To make a custom Class or object iterable we need to make use of two dunder methods, __iter__ and __next__.
+class TimesTen:
+    def __init__(self, max = 0):
+        self.max = max
+        self.i = 0
+    # This method initalizes the iterator object
+    def __iter__(self):
+        return self
+    # This method returns the next value for the iterable. When it reaches the end it should raise a StopIteration error
+    def __next__(self):
+        if self.i <= self.max:
+            result = self.i * 10
+            self.i += 1
+            return result
+        else:
+            raise StopIteration
+>>> for i in TimesTen(10):
+...   print(i)
+...
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+```
+
+```python
+# Generators
+
+
 ```
