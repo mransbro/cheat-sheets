@@ -23,11 +23,19 @@ docker ps                   #  List running containers
 ```
 
 ```
+docker ps -a                # List all containers (running and stoppped)
+```
+
+```
 docker image ls             # List images
 ```
 
 ```
 docker rmi <image>          # Remove Docker image
+```
+
+```
+docker rm $(docker ps -a -q)    # Remove all containers
 ```
 
 ```

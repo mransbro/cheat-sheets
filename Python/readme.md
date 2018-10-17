@@ -1,5 +1,7 @@
 # Python
 
+## Comments
+
 ```python
 # Single line comment
 ```
@@ -78,7 +80,7 @@ print(...)
 ```
 
 ```python
-# Most objects have a docstring which is a short description of its features.
+# Most objects have a docstring, which is a short description of its features.
 >>> print.__doc__
 '''print(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream,
 or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream);
@@ -87,14 +89,16 @@ string appended after the last value, default a newline.\nflush: whether to forc
 ```
 
 ```python
-# The dir() Method tries to return a list of valid attributes of the object
+# dir()
+# The dir() Method returns a list of valid attributes of the object.
 one = 1
 >>> dir(1)
 ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
 ```
 
 ```python
-# Need to know what type an object is
+# type()
+# The type method returns an object's type.
 >>> data = "Fat cat on a mat"
 >>> type(data)
 <class 'str'>
@@ -103,16 +107,40 @@ one = 1
 ## Data Structures
 
 ```python
-# List are enclosed in square brackets are immuptable and contain different data types
+# Lists are enclosed in square brackets, are immuptable and contain different data types
 >>> random_data = [1,2,'friday',4.6,True]
+# Empty lists are allowed
+>>> empty = []
+# Items in the list can be accessed by the index operator
+>>> random_data[3]
+4.6
+# List comprehension is used to transform any list or iterable into another list.
+# The syntax can be confusing at first [expression for item in list if conditional]
+days = ['mon','tues','wednes','thurs','fri']
+new_days = [x + 'day' for x in days]
+>>> new_days
+['monday', 'tuesday', 'wednesday', 'thursday', 'friday']
+# Conditionals are placed at the back
+>>> o = [print(f"{x} is even") for x in range(1,11) if x % 2 == 0]
+2 is even
+4 is even
+6 is even
+8 is even
+10 is even
 
-# List comprehension syntax is [expression for item in list if conditional]
-
-
+# List comprehension can also be used on nested lists
+numbers = [[1,2,3],[4,5,6],[7,8,9]]
+new_nums = [num for numlist in numbers for num in numlist]
+# Breaking it down over several lines can often improve readability
+[
+    num
+    for numlist in numbers
+    for num in numlist
+]
 ```
 
 ```python
-# Tuples are created with round brackets are immuptable and much faster to use
+# Tuples are created with round brackets are immuptable
 >>> months = ('JAN','FEB','MAR','APR','MAY','JUN', 'JUL','AUG','SEP','OCT','NOV','DEC')
 ```
 
@@ -169,7 +197,8 @@ one = 1
 # map(function, iterable object)
 >>> nums = [89,6,78,100,32,16]
 >>> doubles = map(lambda x: x * 2, nums)
-# This creates a map object. Printing the object wont do much good, we can either convert to a list or loop through it.
+# This creates a map object. Printing the object wont do much good, we can either convert
+# to a list or loop through it.
 >>> print(list(doubles))
 [178, 12, 156, 200, 64, 32]
 # Map objects can only be itereated over once
@@ -289,7 +318,7 @@ Stop messing around please
 I run when the except block doesnt
 ```
 
-### Iterators and Generators
+## Iterators and Generators
 
 ```python
 # Iterators
@@ -306,7 +335,7 @@ I run when the except block doesnt
 'u'
 >>> next(word_iter)
 'n'
-# To make a custom Class or object iterable we need to make use of two dunder methods, __iter__ and __next__.
+# To make a custom Class or object iterable we need to make use of these two dunder methods, __iter__ and __next__.
 class TimesTen:
     def __init__(self, max = 0):
         self.max = max
@@ -314,7 +343,8 @@ class TimesTen:
     # This method initalizes the iterator object
     def __iter__(self):
         return self
-    # This method returns the next value for the iterable. When it reaches the end it should raise a StopIteration error
+    # This method returns the next value for the iterable. When it reaches the end it should
+    # raise a StopIteration error
     def __next__(self):
         if self.i <= self.max:
             result = self.i * 10
@@ -339,7 +369,32 @@ class TimesTen:
 ```
 
 ```python
-# Generators
-
-
+# Generators are functions that can be paused, resumed and return an object which can be iterated over.
+# Generators introduce the yield statement. Its smiliar to return in that it returns a value
+# but differs in that it saves the state of the function.
+# This means the function can execute again and continue where it left off, all variables still intact.
+>>> def values():
+>>>    yield 1
+>>>    yield 2
+>>>    yield 3
+>>> a = values()
+# Generators are a type of iterator and use the same next() method to get the next value
+>>> next(a)
+1
+>>> next(a)
+2
+>>> next(a)
+3
+# Generators become essential when dealing with large number sets like the Fibonacci Sequence
+# or prime number caluclations
+# For instance calculating all prime numbers up to 10,000,000 would use lots of memory. A generator is able to
+# calculate each number when needed not upfront.
+>>> def fib_nums(max):
+>>>     a = 0
+>>>     b = 1
+>>>     count = 0
+>>>     while count < max:
+>>>         a, b = b, a + b
+>>>         yield a
+>>>         count += 1
 ```
