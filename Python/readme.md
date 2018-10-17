@@ -1,17 +1,5 @@
 # Python
 
-* [Comments](#Comments)
-
-* [Help](#Help)
-
-* [Data Structures](#Data-Structures)
-
-* [Built in Functions](#Built-in-Functions)
-
-* [Errors](#Errors)
-
-* [Iterators & Generators](#Iterators-and-Generators)
-
 ## Comments
 
 ```python
@@ -209,7 +197,8 @@ new_nums = [num for numlist in numbers for num in numlist]
 # map(function, iterable object)
 >>> nums = [89,6,78,100,32,16]
 >>> doubles = map(lambda x: x * 2, nums)
-# This creates a map object. Printing the object wont do much good, we can either convert to a list or loop through it.
+# This creates a map object. Printing the object wont do much good, we can either convert
+# to a list or loop through it.
 >>> print(list(doubles))
 [178, 12, 156, 200, 64, 32]
 # Map objects can only be itereated over once
@@ -354,7 +343,8 @@ class TimesTen:
     # This method initalizes the iterator object
     def __iter__(self):
         return self
-    # This method returns the next value for the iterable. When it reaches the end it should raise a StopIteration error
+    # This method returns the next value for the iterable. When it reaches the end it should
+    # raise a StopIteration error
     def __next__(self):
         if self.i <= self.max:
             result = self.i * 10
@@ -395,7 +385,8 @@ class TimesTen:
 2
 >>> next(a)
 3
-# Generators become essential when dealing with large number sets like the Fibonacci Sequence or prime number caluclations
+# Generators become essential when dealing with large number sets like the Fibonacci Sequence
+# or prime number caluclations
 # For instance calculating all prime numbers up to 10,000,000 would use lots of memory. A generator is able to
 # calculate each number when needed not upfront.
 >>> def fib_nums(max):
