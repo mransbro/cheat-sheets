@@ -152,7 +152,7 @@ new_nums = [num for numlist in numbers for num in numlist]
 ```
 
 ```python
-# Tuples are created with round brackets are immuptable and much faster to use
+# Tuples are created with round brackets are immuptable
 >>> months = ('JAN','FEB','MAR','APR','MAY','JUN', 'JUL','AUG','SEP','OCT','NOV','DEC')
 ```
 
@@ -346,7 +346,7 @@ I run when the except block doesnt
 'u'
 >>> next(word_iter)
 'n'
-# To make a custom Class or object iterable we need to make use of two dunder methods, __iter__ and __next__.
+# To make a custom Class or object iterable we need to make use of these two dunder methods, __iter__ and __next__.
 class TimesTen:
     def __init__(self, max = 0):
         self.max = max
@@ -380,7 +380,30 @@ class TimesTen:
 
 ```python
 # Generators are functions that can be paused, resumed and return an object which can be iterated over.
-# generators introduce the yield statement. Its smiliar to return in that it returns a value but differs in that it saves the state of the function.
-# This means the function execution continues where it left off.
-
+# Generators introduce the yield statement. Its smiliar to return in that it returns a value
+# but differs in that it saves the state of the function.
+# This means the function can execute again and continue where it left off, all variables still intact.
+>>> def values():
+>>>    yield 1
+>>>    yield 2
+>>>    yield 3
+>>> a = values()
+# Generators are a type of iterator and use the same next() method to get the next value
+>>> next(a)
+1
+>>> next(a)
+2
+>>> next(a)
+3
+# Generators become essential when dealing with large number sets like the Fibonacci Sequence or prime number caluclations
+# For instance calculating all prime numbers up to 10,000,000 would use lots of memory. A generator is able to
+# calculate each number when needed not upfront.
+>>> def fib_nums(max):
+>>>     a = 0
+>>>     b = 1
+>>>     count = 0
+>>>     while count < max:
+>>>         a, b = b, a + b
+>>>         yield a
+>>>         count += 1
 ```
