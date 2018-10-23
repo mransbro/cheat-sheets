@@ -263,7 +263,28 @@ True
 2
 # max()
 # The max method returns the largest element in an iterable
+>>> nums = [45,68,2,11,85]
+>>> min(max)
+85
+# If the iterbale is empty we can return a default object
+>>> max(empty_list, default='That list is empty')
+'That list is empty'
+# A function can also be passed with the keyword key
+not_all_ints = [1,2,3,4.0,5.0,'6']
+max(not_all_ints, key=lambda x: int(x))
+'6'
 ```
+
+```python
+# abs()
+# The abs() method returns the absolute value of a given number
+>>> abs(-6)
+6
+>>> abs(70)
+70
+```
+
+
 
 ```python
 # The reversed method return the reversed iterator of a sequence
