@@ -153,8 +153,9 @@ new_nums = [num for numlist in numbers for num in numlist]
 # Dictonary Comprehension
 # The syntax looks like {key:value for x in list}
 >>> word = 'comprehension'
->>> letter_count = {letter:word.count(x) for letter in word}
+>>> letter_count = {letter:word.count(letter) for letter in word}
 >>> {'c': 1, 'o': 2, 'm': 1, 'p': 1, 'r': 1, 'e': 2, 'h': 1, 'n': 2, 's': 1, 'i': 1}
+# Keys and vales can have logic in them.
 ```
 
 ```python
