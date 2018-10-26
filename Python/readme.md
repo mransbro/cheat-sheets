@@ -178,6 +178,22 @@ new_nums = [num for numlist in numbers for num in numlist]
 {1, 2, 3, 4}
 ```
 
+```python
+# Python has a feature called Slicing. Slicing allows us to manipulate the sequence of elements within objects such as Lists, Tuples, and strings amongst others.
+# Slicing has three parameters start, end, and step and given in that order. All are optional.
+>>> a = [1,2,3,4,5,6]
+# Supplying just the start
+>>> a[3::]
+[4, 5]
+# Supplying a start and end
+>>> a[2:4]
+[3, 4]
+# Supplying a minus step lists the elements backwards
+>>> a[::-1]
+[5, 4, 3, 2, 1]
+```
+
+
 ## Built in Functions
 
 ```python
