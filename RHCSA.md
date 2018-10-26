@@ -88,8 +88,6 @@ LVM
 
 ## Manage users and groups
 
-## Manage Security
-
 /etc/passwd file lists all user accounts on system and info linked to them.
 It is colon seperated and contains the following info:
 Username:Encrypted Password: User ID number (UID):Users group ID (GID):Full name of the user (GECOS):User's home directory: Login shell
@@ -107,4 +105,15 @@ Setting a users shell to /sbin/nologin stops them from logging in
 /etc/group contains all groups
 getent command returns all groups a user is a member of
 
+### Create, delete and modify local user accounts
+
+### Change passwords and adjust password aging for local user accounts
+
+### Create, delete, and modify local groups and group memberships
+
+### Configure a system to use an exsiting authentication service for user and group information
+
 ## Manage Security
+
+
+
