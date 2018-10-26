@@ -24,6 +24,36 @@ Table of Contents
 
 ## Operate running systems
 
+Interrupting the boot process. This can only be done via the console so not suitable for all virtuilization systems.
+
+### Start, Stop and Check the status of network services
+
+There is a network.service.
+
+Systemctl commands will always assume you mean service if the unit type isnt specified.
+
+systemctl start
+
+systemctl stop
+
+systemctl is-enabled
+
+systemctl status network
+
+### Securely transfer files between servers
+
+SFTP and SCP go over port 22. These are encrypted transfer methods.
+
+```sh
+scp <filename> usercreds@host:dir_location
+```
+
+```
+sftp user@host
+get <file>
+put <file>
+```
+
 ### Rebooting and Starting up
 
 Systemd handles the shutting down and starting of our system.
