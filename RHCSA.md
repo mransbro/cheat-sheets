@@ -22,7 +22,7 @@ Table of Contents
 
 ## Understand and use essential tools
 
-Finding Files with locate and find
+### Finding Files with locate and find
 
 Locate is a cached search which uses a DB to store file names and locations. A CRON job updates the DB. This means sometimes the updateddb command is needed.
 It also also very fast as its cached.
@@ -35,6 +35,8 @@ find /etc/ -mtime -3
 useradd mary
 id mary
 find / -uid 1000 -type f -exec cp /home/marys-files
+
+
 
 ## Operate running systems
 
