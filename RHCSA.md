@@ -36,7 +36,55 @@ useradd mary
 id mary
 find / -uid 1000 -type f -exec cp /home/marys-files
 
+### Locate, Read and Use System Documentation with man, info and /usr/share/doc
 
+The mandb command manuals updates the man db cache.
+apropos searches the manpages and descriptions. This is sometimes needed for searches such as passwd where there is more then one level of man page.
+
+Man pages are old and GNU documention is moving over to info
+info searches the /usr/share/info
+
+Info will return man pages if there is no info node on a topic
+When inside info press ? to view navigation commands
+
+To search info 
+info --apropos=tee
+
+/usr/share/doc holds documentation. Look in here if nothing in info or man.
+
+If something is installed via rpm
+rpm -qd packagename
+
+### Create, Delete, Copy and Move Files and Directories
+
+Touch creates files 
+touch {file1, file2, file3}
+
+mkdir {dir1, dir2, dir3}
+
+To rename a file or directory use the mv command
+
+mv file1 file1_newname
+
+mkdir -p flag ignores any parent dir errors and creates as needed
+
+Tree is an app that needs installing but it useful for displaying the directory structure
+
+Use the rm command to remove
+rm -rf file1
+
+### Create Hard and Soft links
+
+two types of links in Linx
+
+Symbolic: refers to a path of a file
+Hard:  refers to the specific location of physical data
+
+Sym links can work across file systems, hard links cannot.
+
+ln -s filename linkname
+
+ls -il displays the inode number and also the number of links to a file
 
 ## Operate running systems
 
