@@ -36,28 +36,11 @@ useradd mary
 id mary
 find / -uid 1000 -type f -exec cp /home/marys-files
 
-### Locate, Read and Use System Documentation with man, info and /usr/share/doc
 
-The mandb command manuals updates the man db cache.
-apropos searches the manpages and descriptions. This is sometimes needed for searches such as passwd where there is more then one level of man page.
-
-Man pages are old and GNU documention is moving over to info
-info searches the /usr/share/info
-
-Info will return man pages if there is no info node on a topic
-When inside info press ? to view navigation commands
-
-To search info 
-info --apropos=tee
-
-/usr/share/doc holds documentation. Look in here if nothing in info or man.
-
-If something is installed via rpm
-rpm -qd packagename
 
 ### Create, Delete, Copy and Move Files and Directories
 
-Touch creates files 
+Touch creates files
 touch {file1, file2, file3}
 
 mkdir {dir1, dir2, dir3}
@@ -75,16 +58,38 @@ rm -rf file1
 
 ### Create Hard and Soft links
 
-two types of links in Linx
+Two types of links in Linx
 
 Symbolic: refers to a path of a file
-Hard:  refers to the specific location of physical data
+Hard:  refers to the same inode as the linked file
 
 Sym links can work across file systems, hard links cannot.
 
 ln -s filename linkname
 
 ls -il displays the inode number and also the number of links to a file
+
+### List, set and change standard ugo/rwx permissions
+
+
+### Locate, Read and Use System Documentation with man, info and /usr/share/doc
+
+The mandb command manuals updates the man db cache.
+apropos searches the manpages and descriptions. This is sometimes needed for searches such as passwd where there is more then one level of man page.
+
+Man pages are old and GNU documention is moving over to info
+info searches the /usr/share/info
+
+Info will return man pages if there is no info node on a topic
+When inside info press ? to view navigation commands
+
+To search info:
+info --apropos=tee
+
+/usr/share/doc holds documentation. Look in here if nothing in info or man.
+
+If something is installed via rpm
+rpm -qd packagename
 
 ## Operate running systems
 
@@ -147,6 +152,13 @@ Targets used now instead of run levels
 LVM 
 
 ## Create and Configure File Systems
+
+### Create, mount, unmount, and use vfat, ext4, and xfs file systems
+### Mount and unmount CIFS and NFS network file systems
+### Extend existing logical volumes
+### Create and configure set-GID directories for collaboration
+### Create and manage Access Control Lists (ACLs)
+### Diagnose and correct file permission problems
 
 ## Deploy Configure and Maintain Systems
 
