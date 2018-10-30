@@ -36,7 +36,16 @@ useradd mary
 id mary
 find / -uid 1000 -type f -exec cp /home/marys-files
 
+### Create and Edit Text Files
 
+Nano needs installing
+
+Vi will always been available. Must be learned.
+
+When first entering vi you get placed in command mode
+Pressing i enters insert mode
+
+Add vi commands
 
 ### Create, Delete, Copy and Move Files and Directories
 
