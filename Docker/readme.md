@@ -41,3 +41,6 @@ docker rm $(docker ps -a -q)    # Remove all containers
 ```
 docker kill <container ID>  # Kill a running container
 ```
+
+```
+docker exec -it <container ID> /bin/bash    # Starts a bash session inside the container
