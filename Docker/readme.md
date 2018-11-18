@@ -43,4 +43,8 @@ docker kill <container ID>  # Kill a running container
 ```
 
 ```
+docker kill $(docker ps -q)     # Kill all containers
+```
+
+```
 docker exec -it <container ID> /bin/bash    # Starts a bash session inside the container
