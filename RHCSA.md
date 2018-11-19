@@ -200,5 +200,15 @@ getent command returns all groups a user is a member of
 
 ## Manage Security
 
+### Configure Firewall settings Using Available Firewall Utilities
 
+Firewalld not installed on minimum installation of RedHat but does come with the base install.
+yum install firewalld firewall-config
 
+runtime changeonly lives in memory, doesnt require reboot
+
+firewall-cmd command
+
+firewall-cmd --get-default-zone
+
+firewall-cmd --list-all
