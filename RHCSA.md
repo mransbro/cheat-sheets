@@ -202,13 +202,62 @@ getent command returns all groups a user is a member of
 
 ### Configure Firewall settings Using Available Firewall Utilities
 
-Firewalld not installed on minimum installation of RedHat but does come with the base install.
+Net filter is controlled by iptables and firewalld
+
+Firewalld is the prefered Redhat method.
+Not installed on minimum installation of RedHat but does come with the base install.
+
+To install firewalld and the firewall graphical interface:
+
 yum install firewalld firewall-config
 
-runtime changeonly lives in memory, doesnt require reboot
+Firewalld is a service so once installed, needs to be enabled and started
 
-firewall-cmd command
+systemctl enable firewalld
+systemctl start firewalld
 
+The firewall has the conecpt of changes being permanent or in temporary (runtime).
+A runtime change doesnt need the firewall to be reload before working but wont surive a reboot.
+
+Firewalld uses the firewall-cmd command
+
+firewall-cmd state
+running
+
+The firewall uses zones to apply predefined rules for network connections. The rules are based on the level of trust for traffic in that network. We trust the traffic on our home network but wouldnt trust traffic on a public connection such as shared public wifi.
+
+To get the default zone
 firewall-cmd --get-default-zone
 
+To list all zones
+firewall-cmd --get-zones
+
+To check what zone an interface is in
+firewall-cmd --get-active-zones
+
+To change the zone an interface is in
+firewall-cmd --zone=work --change-interface=eth0
+
+Zones can be given source IP ranges. If our DMZ subnet uses 10.10.11.0/24 we can add that as a source for that zone.
+firewall-cmd  --zone=dmz --add-source=10.10.11.0/24
+
+To view all current rules
 firewall-cmd --list-all
+
+To view only services
+firewall-cmd --list-services
+
+To view only ports
+firewall-cmd --list-ports
+
+To enable a service
+firewall-cmd --zone=work --add-service=http
+
+To make the change permanent use the -permanent option
+firewall-cmd --permanent --zone=work --add-service=http
+
+Once a permanent change is made the firewall must be reload/restarted for the changes to be written to config files and take affect.
+systemctl restart firewalld
+
+### Configure Key-based authentication for SSH
+
