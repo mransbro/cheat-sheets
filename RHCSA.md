@@ -18,8 +18,6 @@ Table of Contents
 * [Manage Security](#Manage-Security)
 
 
-
-
 ## Understand and use essential tools
 
 ### Finding Files with locate and find
@@ -261,3 +259,13 @@ systemctl restart firewalld
 
 ### Configure Key-based authentication for SSH
 
+To generate your ssh keypair use the ssh-keygen utility.
+ssh-keygen
+The -t and -b options allow us to specify the algorithm and number of bits
+ssh-keygen -t rsa -b 4096
+
+Once a keypair has been created, to copy the public key to a remote server use the ssh-copy-id utlity.
+
+ssh-copy-id -i user@host
+
+ssh-agent
