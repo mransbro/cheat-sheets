@@ -169,6 +169,49 @@ LVM
 
 ## Deploy Configure and Maintain Systems
 
+### Schedule Tasks using at and cron
+
+at is a 
+
+At allows fairly complex time and date specifications. Full details can be found in the man pages.
+
+```bash
+at now + 5 minutes
+at teatime
+at 5pm
+at 4am Oct 09
+```
+
+When inside the at utlity press ```ctrl + d``` to exit.
+
+To look up jobs use ```atq```.
+
+To remove a scheduled job ```atrm <job number>```.
+
+Any user can create an at job. To deny a user the ability include their username in /etc/at.deny.
+To deny all users create /etc/at.allow file. In the file include any usernames who should have permission to create an at job.
+
+### Start and stop services and configure Services to start Automatically at Boot
+
+For a service to start at boot time it needs to be enabled. A service can be running but not enabled.
+To check if a service is enabled.
+
+```bash
+> systemctl is-enabled atd
+disabled
+> systemctl enable atd
+Created symlink from /etc/systemd/system/multi-user.target.wants/atd.service to /usr/lib/systemd/system/atd.service.
+```
+
+Enabling a service to start at boot. Creates a symlink under the target it was enabled in.
+
+To get the current target
+
+```bash
+> systemctl get-default
+multi-user.target
+```
+
 ## Manage users and groups
 
 /etc/passwd file lists all user accounts on system and info linked to them.
