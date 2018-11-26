@@ -212,6 +212,11 @@ To get the current target
 multi-user.target
 ```
 
+### Configure Systems to boot into a Specific Target
+
+systemctl set-default
+
+
 ## Manage users and groups
 
 /etc/passwd file lists all user accounts on system and info linked to them.
