@@ -449,3 +449,32 @@ class TimesTen:
 >>>         yield a
 >>>         count += 1
 ```
+
+## Decorators
+
+```python
+# Decorators allow us to modify the behaviour of functions without modifying the function itself.
+# In the example below we have a simple function that returns some text.
+>>> def statement(text):
+>>>     return text
+>>> sometext('today is tuesday')
+'today is tuesday'
+# Python treats functions as any other object. We can store them in variables, pass them into and out of other functions.
+# For example the upper function below accepts a function and returns its text in upper case.
+def greet(name):
+    return f"Hi there {name}"
+
+def upper(text):
+    return text.upper()
+# To wrap the the statement function with the upper function without the decorator syntax
+>>> statement = upper(statement)
+>>> print(statement('Today is Monday'))
+TODAY IS MONDAY
+# Decorators are syntatic sugar that provide a cleaner method of wrapping function.
+@upper
+def statement(text):
+    return text
+
+statement('abc')
+'ABC'
+```
