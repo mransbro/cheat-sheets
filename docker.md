@@ -83,3 +83,14 @@ docker container inspect <container>    # Displays details information on the co
 ```bash
 docker container stats                  # Displays a live stream of container resource usage stats
 ```
+
+# Networks
+
+```bash
+docker network ls                       # List all networks
+```
+
+```bash
+docker network create <network>         # Creates a docker network
+```
+
