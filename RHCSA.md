@@ -18,8 +18,6 @@ Table of Contents
 * [Manage Security](#Manage-Security)
 
 
-
-
 ## Understand and use essential tools
 
 ### Finding Files with locate and find
@@ -171,28 +169,52 @@ LVM
 
 ## Deploy Configure and Maintain Systems
 
-### Schedule Tasks Using at and cron
+### Schedule Tasks using at and cron
 
-Usual process to install and run at
+at is a 
+
+At allows fairly complex time and date specifications. Full details can be found in the man pages.
 
 ```bash
-yum install at
-systemctl enable atd
-systemct start atd
+at now + 5 minutes
+at teatime
+at 5pm
+at 4am Oct 09
 ```
 
-The syntax for at
+When inside the at utlity press ```ctrl + d``` to exit.
 
-at now + 5 minutes
-at 4am + 2 days
+To look up jobs use ```atq```.
 
-After entering the first command the at prompt will appear.
+To remove a scheduled job ```atrm <job number>```.
 
-'''
-at> date
-'''
+Any user can create an at job. To deny a user the ability include their username in /etc/at.deny.
+To deny all users create /etc/at.allow file. In the file include any usernames who should have permission to create an at job.
 
-To exit the at prompt press crtl+d
+### Start and stop services and configure Services to start Automatically at Boot
+
+For a service to start at boot time it needs to be enabled. A service can be running but not enabled.
+To check if a service is enabled.
+
+```bash
+> systemctl is-enabled atd
+disabled
+> systemctl enable atd
+Created symlink from /etc/systemd/system/multi-user.target.wants/atd.service to /usr/lib/systemd/system/atd.service.
+```
+
+Enabling a service to start at boot. Creates a symlink under the target it was enabled in.
+
+To get the current target
+
+```bash
+> systemctl get-default
+multi-user.target
+```
+
+### Configure Systems to boot into a Specific Target
+
+systemctl set-default
 
 
 ## Manage users and groups
@@ -285,3 +307,13 @@ systemctl restart firewalld
 
 ### Configure Key-based authentication for SSH
 
+To generate your ssh keypair use the ssh-keygen utility.
+ssh-keygen
+The -t and -b options allow us to specify the algorithm and number of bits
+ssh-keygen -t rsa -b 4096
+
+Once a keypair has been created, to copy the public key to a remote server use the ssh-copy-id utlity.
+
+ssh-copy-id -i user@host
+
+ssh-agent

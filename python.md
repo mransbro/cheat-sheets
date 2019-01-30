@@ -193,7 +193,6 @@ new_nums = [num for numlist in numbers for num in numlist]
 [5, 4, 3, 2, 1]
 ```
 
-
 ## Built in Functions
 
 ```python
@@ -203,7 +202,7 @@ new_nums = [num for numlist in numbers for num in numlist]
 >>> l = lambda x,y : x * y
 >>> l(5,5)
 25
-# Lambda Functions are generally used as an argument to a higher-order function, 
+# Lambda Functions are generally used as an argument to a higher-order function,
 # a function that takes in other functions as arguments.
 # There used along with built-in functions like filter(), map() etc.
 ```
@@ -301,8 +300,6 @@ max(not_all_ints, key=lambda x: int(x))
 70
 ```
 
-
-
 ```python
 # The reversed method return the reversed iterator of a sequence
 # reversed(seq)
@@ -312,6 +309,22 @@ letters = ['a','b','c','d','e','f','g','h']
 
 >>> print(list(reversed(letters)))
 ['h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
+```
+
+```python
+# The zip function accepts 0 or more iterable objects and returns an iterable of tuples as a zip object.
+# Zip is mostly used for combining data. In this example we're taking a list of names and pairing them with a number.
+>>> r = range(1234,9999)
+>>> n = ['Sam','Raj','Tim']
+# As zip returns an iterable zip object we need to either loop through it or wrap it in a dict or list.
+>>> dict(zip(r,n))
+{1234: 'Sam', 1235: 'Raj', 1236: 'Tim'}
+# The zip function stops once it has exhasuted the shortest iterable object. In the case above it stops after the 3rd name.
+# Zip can also unpack data
+>>> nums = [(1,99),(34,2),(23,88),(15,52)]
+# Add an asterik in front of the list
+>>> list(zip(*nums))
+[(1, 34, 23, 15), (99, 2, 88, 52)]
 ```
 
 ## Errors
@@ -435,4 +448,33 @@ class TimesTen:
 >>>         a, b = b, a + b
 >>>         yield a
 >>>         count += 1
+```
+
+## Decorators
+
+```python
+# Decorators allow us to modify the behaviour of functions without modifying the function itself.
+# In the example below we have a simple function that returns some text.
+>>> def statement(text):
+>>>     return text
+>>> sometext('today is tuesday')
+'today is tuesday'
+# Python treats functions as any other object. We can store them in variables, pass them into and out of other functions.
+# For example the upper function below accepts a function and returns its text in upper case.
+def greet(name):
+    return f"Hi there {name}"
+
+def upper(text):
+    return text.upper()
+# To wrap the the statement function with the upper function without the decorator syntax
+>>> statement = upper(statement)
+>>> print(statement('Today is Monday'))
+TODAY IS MONDAY
+# Decorators are syntatic sugar that provide a cleaner method of wrapping function.
+@upper
+def statement(text):
+    return text
+
+statement('abc')
+'ABC'
 ```
