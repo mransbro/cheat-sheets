@@ -171,6 +171,30 @@ LVM
 
 ## Deploy Configure and Maintain Systems
 
+### Schedule Tasks Using at and cron
+
+Usual process to install and run at
+
+```bash
+yum install at
+systemctl enable atd
+systemct start atd
+```
+
+The syntax for at
+
+at now + 5 minutes
+at 4am + 2 days
+
+After entering the first command the at prompt will appear.
+
+'''
+at> date
+'''
+
+To exit the at prompt press crtl+d
+
+
 ## Manage users and groups
 
 /etc/passwd file lists all user accounts on system and info linked to them.
