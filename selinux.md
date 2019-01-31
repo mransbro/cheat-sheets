@@ -24,3 +24,4 @@ semanage fcontext -d <context>
 getsebool -a
 
 setsebool <bool> on
+setsebool -P <bool> on|off
